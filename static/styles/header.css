@@ -11,10 +11,12 @@ header li {
   display: block;
   padding-left: 8px;
   padding-right: 8px;
+  color:rgb(231, 221, 221);
+
 }
 
 .topBar{
-  background-color: #faf9f7;
+  background-color: #6a7a5a;
   display:flex;
   justify-content: space-between;
   align-items:center;
@@ -32,20 +34,29 @@ header li {
   border-radius: 5px;
   margin-left: 10px;
 }
+.input{
+  background-color: #4c5841;
+}
+input[type='submit'] {
+  background-color: #4c5841;
+  color: #d7cbb2;
 
+}
 .mainDiv {
   margin: auto;
   width: 30%;
 
 }
-
+.heading{
+  color: #6a7a5a;
+}
 h1{
   text-align: center;
 }
 
 header a{
   text-decoration:none;
-  color:black;
+  color:rgb(231, 221, 221);
 }
 
 /* FOOTER */
@@ -73,8 +84,9 @@ body {
   display: flex;
   flex-flow: row wrap;
   padding: 30px 30px 20px 30px;
-  color: #2f2f2f;
-  background-color: #fff;
+  color: #bed2ba;
+
+  background-color: #6a7a5a;
   border-top: 1px solid #e5e5e5;
 }
 
@@ -107,7 +119,7 @@ body {
 
 .footer address {
   font-style: normal;
-  color: #999;
+  color: #aac4bc;
 }
 
 .footer__btn {
@@ -116,9 +128,9 @@ body {
   justify-content: center;
   height: 36px;
   max-width: max-content;
-  background-color: rgb(33, 33, 33, 0.07);
+  background-color: #4c5841;
   border-radius: 100px;
-  color: #2f2f2f;
+  color: #d7cbb2;
   line-height: 0;
   margin: 0.6em 0;
   font-size: 1rem;
@@ -149,7 +161,7 @@ body {
 }
 
 .nav__ul a {
-  color: #999;
+  color: #d7cbb2;
 }
 
 .nav__ul--extra {
@@ -160,7 +172,7 @@ body {
 .legal {
   display: flex;
   flex-wrap: wrap;
-  color: #999;
+  color: #d7cbb2;
 }
 
 .legal__links {
@@ -169,7 +181,7 @@ body {
 }
 
 .heart {
-  color: #2f2f2f;
+  color: #8daf9b;
 }
 
 @media screen and (min-width: 24.375em) {

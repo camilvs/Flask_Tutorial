@@ -9,7 +9,13 @@
 
     .boat {
         min-width: 200px;
-        padding: 10px;
+        /* max-width: 25px; */
+        padding: 20px;
+        background-color: #687859;
+        color: rgb(231, 221, 221);
+        margin: 10px;
+        border-radius: 10px;
+        font-weight:600;
     }
 
     .pagination_bar {
@@ -20,7 +26,7 @@
     }
     .pagination_button {
         font-size: 20px;
-        background-color: #4CAF50; /* Green */
+        background-color: #6a7a5a; 
         border: none;
         color: white;
         padding: 2px 2px 4px;
@@ -38,6 +44,19 @@
         padding-top: 20px;
         align-items: center;
     }
+    li{
+        list-style-type: none;
+        align-items: center;
+    }
+    .header {
+        background-color: #b0c29d;
+        /* width:100%; */
+        color: #687859;
+
+    }
+    .boat img{
+        height: 200px;
+    }
 </style>
 
 {% extends "base.html" %}
@@ -49,8 +68,9 @@
         <div class="flex-box">
             {% for boat in boats %}
                 <div class="boat">
+                    <img src=" https://i.pinimg.com/736x/e2/26/89/e22689a7fe54446c15665bf05fd5e794.jpg" alt="boat">
                     <ul>
-                        <li>Boat id: {{ boat['id'] }}</li>
+                        <li class="header">Boat id: {{ boat['id'] }}</li>
                         <ul>
                             <li>Name: {{ boat['name'] }}</li>
                             <li>Type: {{ boat['type'] }}</li>
@@ -63,6 +83,7 @@
 
             {% if boats | length < 1 %}
                 <h1>No data available</h1>
+               
             {% endif %}
         </div>
 
