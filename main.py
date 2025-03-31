@@ -54,5 +54,30 @@ def create_boat():
         return render_template('boats_create.html', error=error, success=None)
 
 
+@app.route('/search', methods=['GET'])
+
+def search_boat():
+    search_query = request.args.get('query')
+    if search_query:
+        query = conn.execute(
+            text("SELECT * FROM boats WHERE ID LIKE :query"),
+            request.form
+        )
+    if not query:
+        return render_template('boats_search.html', error="No boats found!", boats=None)
+            
+    return render_template('boats_search.html', error=None, boats=query)
+ 
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
