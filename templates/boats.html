@@ -70,8 +70,7 @@
 
         <div class="flex-box">
             {% for boat in boats %}
-            <!-- <a href="{{ url_for('boat_detail', boat_id=boat['id']) }}"> -->
-            <a href="#">
+            <a href="{{ url_for('boat_info', boat_id=boat['id']) }}">
                 <div class="boat">
                 
                     <img src=" https://i.pinimg.com/736x/e2/26/89/e22689a7fe54446c15665bf05fd5e794.jpg" alt="boat">

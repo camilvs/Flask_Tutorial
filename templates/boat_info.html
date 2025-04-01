@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>boat info</h1>
+    <div class="boat-info-container">
+        <div class="boat-info">
+            <h1>Boat Details</h1>
+            <img src="https://i.pinimg.com/736x/e2/26/89/e22689a7fe54446c15665bf05fd5e794.jpg" alt="Boat Image">
+            <ul>
+                <li><strong>ID:</strong> {{ boat['id'] }}</li>
+                <li><strong>Name:</strong> {{ boat['name'] }}</li>
+                <li><strong>Type:</strong> {{ boat['type'] }}</li>
+                <li><strong>Owner ID:</strong> {{ boat['owner_id'] }}</li>
+                <li><strong>Price:</strong> ${{ boat['rental_price'] }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
