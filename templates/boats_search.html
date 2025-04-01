@@ -1,9 +1,92 @@
+<style>
+     .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container {
+        text-align: center;
+        background-color: #cddcbd;
+        padding: 30px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 900px;
+    }
+    h1{
+        color: #6a7a5a;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+    }
+    .flex-box {
+        display: flex;
+        font-size: 16px;
+        flex-wrap: wrap;
+        width: 1140px;
+        margin: auto;
+    }
+
+    .boat {
+        min-width: 200px;
+        /* max-width: 25px; */
+        padding: 20px;
+        background-color: #687859;
+        color: rgb(231, 221, 221);
+        margin: 10px;
+        border-radius: 10px;
+        font-weight:600;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding-top: 20px;
+        align-items: center;
+    }
+    li{
+        list-style-type: none;
+        align-items: center;
+    }
+    .boat img{
+        height: 200px;
+    }
+</style>
+
 {% extends "base.html" %}
 {% block body %}
-<form action="/search" method="GET">
-    <input type="number" name="id" placeholder="ID" class="input_field">
-    <!-- <input type="text" name="query" placeholder="Search for a boat"> -->
-    <button type="submit">Search</button>
-</form>
-
+<div class="wrapper">
+    <div class="container">
+        <h1>Search Results</h1>
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% else %}
+            {% if boats %}
+            
+                <ul>
+                    {% for boat in boats %}
+                    <div class="boat">
+                
+                        <img src=" https://i.pinimg.com/736x/e2/26/89/e22689a7fe54446c15665bf05fd5e794.jpg" alt="boat">
+                        <ul>
+                            <li class="header">Boat id: {{ boat['id'] }}</li>
+                            <ul>
+                                <li>Name: {{ boat['name'] }}</li>
+                                <li>Type: {{ boat['type'] }}</li>
+                                <li>Owner ID: {{ boat['owner_id'] }}</li>
+                                <li>Price: {{ boat['rental_price'] }}</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </ul>
+        
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
