@@ -71,6 +71,7 @@ def search_boat():
         return render_template('search.html', error="No boats found!", boats=None)
     
     return render_template('boats_search.html', error=None, boats=boats)
+
 # boat detail page
 @app.route('/boat_info/<int:boat_id>')
 def boat_info(boat_id):

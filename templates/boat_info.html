@@ -1,10 +1,33 @@
+<style>
+    .boat-info{
+        text-align: center;
+        background-color: #6a7a5a;
+        padding: 30px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 900px;
+        margin: 20px;
+
+    }
+    .boat-info-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    li{
+        list-style-type: none;
+    }
+    .boatimg{
+        height: 200px;
+    }
+</style>
 {% extends "base.html" %}
 {% block body %}
-    <h1>boat info</h1>
     <div class="boat-info-container">
         <div class="boat-info">
             <h1>Boat Details</h1>
-            <img src="https://i.pinimg.com/736x/e2/26/89/e22689a7fe54446c15665bf05fd5e794.jpg" alt="Boat Image">
+            <img src="https://i.pinimg.com/736x/e2/26/89/e22689a7fe54446c15665bf05fd5e794.jpg" alt="boat" class="boatimg">
             <ul>
                 <li><strong>ID:</strong> {{ boat['id'] }}</li>
                 <li><strong>Name:</strong> {{ boat['name'] }}</li>
@@ -15,3 +38,4 @@
         </div>
     </div>
 {% endblock %}
+
