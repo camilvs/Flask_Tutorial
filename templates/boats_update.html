@@ -1,56 +1,28 @@
-<style>
-    .body {
-        margin: auto;
-    }
-
-    .input_field {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    .input_submit {
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .input_submit:hover {
-        background-color: #657e66;
-    }
-</style>
-
 {% extends "base.html" %}
-
 {% block body %}
-    <div class="body">
-        {% if error %}
-            <h2>{{ error }}</h2>
-        {% endif %}
+    <div class="boat-info-container">
+        <div class="boat-info">
+            <h1>Update Boat Details</h1>
+            
+            <form method="POST">
+                <label for="name">Boat Name:</label><br>
+                <input type="text" id="name" name="name" value="{{ boat['name'] }}" required><br><br>
 
-        {% if success %}
-            <h2>{{ success }}</h2>
-        {% endif %}
+                <label for="type">Boat Type:</label><br>
+                <input type="text" id="type" name="type" value="{{ boat['type'] }}" required><br><br>
 
-        <h1>Update Boat Information</h1>
+                <label for="owner_id">Owner ID:</label><br>
+                <input type="text" id="owner_id" name="owner_id" value="{{ boat['owner_id'] }}" required><br><br>
 
-        <form action="/update" method="POST">
-        
-            <input type="text" name="name" class="input_field" placeholder="Name" value="{{ boat['name'] }}" required><br>
-            <input type="text" name="type" class="input_field" placeholder="Type" value="{{ boat['type'] }}" required><br>
-            <input type="text" name="owner_id" class="input_field" placeholder="Owner ID" value="{{ boat['owner_id'] }}" required><br>
-            <input type="number" name="rental_price" class="input_field" placeholder="Rental Price" value="{{ boat['rental_price'] }}" required><br>
-            <input type="submit" value="Update Boat" class="input_submit">
-        </form>
-        
+                <label for="rental_price">Rental Price:</label><br>
+                <input type="text" id="rental_price" name="rental_price" value="{{ boat['rental_price'] }}" required><br><br>
+
+                <button type="submit">Update</button>
+            </form>
+            
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

@@ -40,11 +40,11 @@
                 <li><strong>Owner ID:</strong> {{ boat['owner_id'] }}</li>
                 <li><strong>Price:</strong> ${{ boat['rental_price'] }}</li>
             </ul>
-            <div class="updateBoat">
-                <button class="barItem input" style="margin-left:10px;">
-                    <a href="{{ url_for('update_boat', boat_id=boat.id) }}">UPDATE BOAT</a>
-                  </button>
-            </div>
+            {% if success %}
+                <p style="color: #d7cbb2;">{{ success }}</p>
+            {% endif %}
+            
+            <a href="{{ url_for('update_boat', boat_id=boat['id']) }}" class="update-link">Update Boat</a>
         </div>
     </div>
    

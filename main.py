@@ -104,6 +104,41 @@ def delete_boat():
         return render_template('boats_delete.html', error=error, success=None)
 
 # update
+@app.route('/boat/update<int:boat_id>', methods=['GET', 'POST'])
+def update_boat(boat_id):
+    if request.method == 'GET':
+        query = text("SELECT * FROM boats WHERE id = :boat_id")
+        boat = conn.execute(query, {"boat_id": boat_id}).fetchone()
+        if boat:
+            return render_template('boats_update.html', boat=boat)
+        else:
+            return "Boat not found", 404
+    if request.method == 'POST':
+        name = request.form['name']
+        boat_type = request.form['type']
+        owner_id = request.form['owner_id']
+        rental_price = request.form['rental_price']
+
+        try:
+            conn.execute(
+                text("""
+                    UPDATE boats 
+                    SET name = :name, type = :type, owner_id = :owner_id, rental_price = :rental_price
+                    WHERE id = :id
+                """),
+                {"name": name, "type": boat_type, "owner_id": owner_id, "rental_price": rental_price, "id": boat_id}
+            )
+            conn.commit()
+            updated_boat = conn.execute(
+                text("SELECT * FROM boats WHERE id = :boat_id"),
+                {"boat_id": boat_id}
+            ).fetchone()
+            return render_template('boat_info.html', boat=updated_boat, success="Boat details updated successfully!")
+
+        except Exception as e:
+            error = e.orig.args[1]
+            print(error)
+            return render_template('boats_update.html', error=error, boat_id=boat_id)
 
 
 if __name__ == '__main__':
