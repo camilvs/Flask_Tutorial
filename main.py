@@ -96,11 +96,15 @@ def delete_boat():
             text("DELETE FROM boats WHERE id = :id"),
             request.form
         )
+        conn.commit()
         return render_template('boats_delete.html', error=None, success="Data deleted successfully!")
     except Exception as e:
         error = e.orig.args[1]
         print(error)
         return render_template('boats_delete.html', error=error, success=None)
+
+# update
+
 
 if __name__ == '__main__':
     app.run(debug=True)
